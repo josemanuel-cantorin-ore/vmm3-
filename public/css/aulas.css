@@ -1,0 +1,187 @@
+VARIABLES
+:root {
+    --aula-blue: #3b82f6;
+    --aula-red: #ef4444;
+    --aula-green: #10b981;
+    --aula-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --aula-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --aula-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== ESTADO VACÍO ===== */
+.icon-empty {
+    width: 48px;
+    height: 48px;
+}
+
+/* ===== ANIMACIÓN DE ENTRADA ESCALONADA ===== */
+.aula-item {
+    opacity: 0;
+    animation: aulaFadeInUp 0.5s ease-out forwards;
+}
+
+.aula-item:nth-child(1) { animation-delay: 0.1s; }
+.aula-item:nth-child(2) { animation-delay: 0.2s; }
+.aula-item:nth-child(3) { animation-delay: 0.3s; }
+.aula-item:nth-child(4) { animation-delay: 0.4s; }
+.aula-item:nth-child(5) { animation-delay: 0.5s; }
+.aula-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes aulaFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== TARJETA PRINCIPAL ===== */
+.aula-card {
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: var(--aula-transition);
+    position: relative;
+    background: #ffffff;
+    transform: scale(1);
+}
+
+/* EFECTO HOVER: Escala + Sombra + Elevación */
+.aula-link:hover .aula-card {
+    transform: scale(1.03) translateY(-8px);
+    box-shadow: var(--aula-shadow-hover);
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+/* ===== BARRA SUPERIOR DE COLOR ===== */
+.aula-card-top-bar {
+    height: 6px;
+    width: 100%;
+    transition: height 0.3s ease;
+}
+
+.aula-link:hover .aula-card-top-bar {
+    height: 8px;
+}
+
+.bar-blue { background: linear-gradient(90deg, #3b82f6, #2563eb); }
+.bar-red { background: linear-gradient(90deg, #ef4444, #dc2626); }
+.bar-green { background: linear-gradient(90deg, #10b981, #059669); }
+
+/* ===== ICONO ===== */
+.aula-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.aula-link:hover .aula-icon-wrapper {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+.aula-icon-wrapper svg {
+    width: 28px;
+    height: 28px;
+}
+
+.icon-blue { background-color: rgba(59, 130, 246, 0.1); color: var(--aula-blue); }
+.icon-red { background-color: rgba(239, 68, 68, 0.1); color: var(--aula-red); }
+.icon-green { background-color: rgba(16, 185, 129, 0.1); color: var(--aula-green); }
+
+/* ===== TIPOGRAFÍA ===== */
+.aula-title {
+    font-weight: 700;
+    color: #1e293b;
+    transition: color 0.2s ease;
+}
+
+.aula-link:hover .aula-title {
+    color: var(--aula-blue);
+}
+
+/* ===== NIVEL ===== */
+.aula-level {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.aula-level svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* ===== ESTADÍSTICAS ===== */
+.aula-stats {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 1.25rem;
+}
+
+.stat-value--success {
+    color: var(--aula-green);
+}
+
+/* ===== EFECTO DE BRILLO (SHINE) ===== */
+.card-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.7s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.aula-link:hover .card-shine {
+    left: 150%;
+}
+
+/* ===== EFECTO RIPPLE (ONDA AL HACER CLIC) ===== */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.3);
+    transform: scale(0);
+    animation: rippleAnimation 0.6s linear;
+    pointer-events: none;
+    z-index: 20;
+}
+
+@keyframes rippleAnimation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ===== CLASES DINÁMICAS APLICADAS POR JS ===== */
+.aula-card--tilt {
+    transition: transform 0.1s ease-out;
+}

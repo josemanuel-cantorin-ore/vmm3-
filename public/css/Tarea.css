@@ -1,0 +1,43 @@
+/* Transiciones suaves para las tarjetas */
+.tarea-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarea-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Cursor de puntero para el título clickeable */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Estilo para el contenedor de fechas dinámicas en el modal */
+.aula-fechas-container {
+    transition: all 0.3s ease;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ajustes para los radio buttons estilo toggle en la tabla */
+.btn-group .btn-check:checked + .btn-outline-success {
+    background-color: #198754;
+    color: white;
+}
+
+.btn-group .btn-check:checked + .btn-outline-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Deshabilitar visualmente los inputs de nota cuando no se cumple */
+.input-nota:disabled, .input-nota-select:disabled {
+    background-color: #f8f9fa;
+    opacity: 0.6;
+    cursor: not-allowed;
+}

@@ -1,0 +1,21 @@
+/* Previene el salto visual reservando el espacio de los íconos antes de que cargue JS */
+i[data-feather] {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+}
+/* ==========================================
+   Estilos para la barra de carga (NProgress)
+   ========================================== */
+#nprogress .bar {
+    background: #3b7ddd !important;
+    height: 4px !important;
+}
+#nprogress .peg {
+    box-shadow: 0 0 10px #3b7ddd, 0 0 5px #3b7ddd !important;
+}
+#nprogress .spinner-icon {
+    border-top-color: #3b7ddd !important;
+    border-left-color: #3b7ddd !important;
+}

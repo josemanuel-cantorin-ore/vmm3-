@@ -1,0 +1,73 @@
+.report-card {
+    border: 1px solid rgba(33, 37, 41, .08);
+    transition: box-shadow .15s ease, transform .15s ease;
+}
+
+.report-card:hover,
+.report-card:focus-visible {
+    box-shadow: 0 .5rem 1rem rgba(33, 37, 41, .12) !important;
+    transform: translateY(-2px);
+}
+
+.report-card-icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+.report-card-arrow {
+    width: 1rem;
+    height: 1rem;
+}
+
+.report-step-label {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    margin: 1.25rem 0 .75rem;
+    color: #343a40;
+    font-weight: 600;
+}
+
+.report-step-label span {
+    display: inline-flex;
+    width: 1.8rem;
+    height: 1.8rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #3b7ddd;
+    color: #fff;
+    font-size: .9rem;
+}
+
+.report-task-picker {
+    max-height: 16rem;
+    overflow-y: auto;
+}
+
+.report-task-option label {
+    cursor: pointer;
+}
+
+.report-chart-wrap {
+    position: relative;
+    min-height: 16rem;
+}
+
+.report-export-form .btn {
+    min-height: 3.25rem;
+}
+
+@media (max-width: 575.98px) {
+    .report-page-header {
+        align-items: flex-start !important;
+    }
+
+    .report-export-form .btn {
+        width: 100%;
+    }
+
+    .report-chart-wrap {
+        min-height: 13rem;
+    }
+}
